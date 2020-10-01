@@ -6,35 +6,39 @@
     <title>Gerenciador de Eventos</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid">
-        <header>
+
+        <header class="fixed-top bg-white">
             <div class="logo">
-                <a href="principal.html" class="navbar-brand">Gerenciador<i>De</i><b>Evento</b></a>
+                <a href="principal.html" class=" navbar-brand">Gerenciador<i>De</i><b>Evento</b></a>
                 <div class="mt-2 center d-inline-block">
                     <p id="usuario-info">Bem vindo, <i></i></p>
                 </div>  		
             </div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <!--Botao exibido ao diminuir a tela-->
+                <!--Botao agrupa funcionalidades ao diminuir a tela-->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarPrincipal">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!--Funcionalidades que estao no nav-->
                 <div class="collapse navbar-collapse" id="navbarPrincipal">
                     <!-- Barra das funcionalidades dos eventos -->
                     <ul class="navbar-nav">
-                        <li class="nav-item active ml-1">
-                            <a id="buscar" class="nav-link btn btn-outline-secondary" >Buscar Eventos</a>
+                        <li class="nav-item active">
+                            <a id="buscar" class="nav-link btn btn-secondary" >Buscar Eventos</a>
                         </li>
-                        <li class="nav-item active usuario-autenticado-eventos ml-1">
-                            <a class="nav-link btn btn-outline-secondary" href="">Criar Evento</a>
+                        <li class="nav-item active usuario-autenticado-eventos">
+                            <a class="nav-link btn btn-secondary" href="">Criar Evento</a>
                         </li>
-                        <li class="nav-item active usuario-autenticado-eventos ml-1">
-                            <a class="nav-link btn btn-outline-secondary" href="">Editar Evento</a>
+                        <li class="nav-item active usuario-autenticado-eventos">
+                            <a class="nav-link btn btn-secondary" href="">Editar Evento</a>
                         </li>
-                        <li class="nav-item active usuario-autenticado-eventos ml-1">
-                            <a class="nav-link btn btn-outline-secondary" href="">Remover Evento</a>
+                        <li class="nav-item active usuario-autenticado-eventos">
+                            <a class="nav-link btn btn-secondary" href="">Remover Evento</a>
                         </li>
                     </ul>
                     <!-- Botoes de login e registro pro usuario-->
@@ -53,7 +57,8 @@
                                             <label for="exampleInputPassword1">Senha</label>
                                             <input id="senha_login" type="password" class="form-control" placeholder="Insira a senha" required="required">
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Conectar">
+                                        <input type="submit" class="btn-submit-form btn btn-primary btn-lg btn-block" value="Conectar">
+                                        <p id="msg_form_login" class="msg_error_auth"><b></b></p>
                                     </form>
                                 </div>
                             </div>
@@ -74,24 +79,47 @@
                                             <label for="exampleInputPassword2">Senha</label>
                                             <input id="senha_register" type="password" class="form-control" placeholder="Insira a senha" required="required">
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Cadastrar">
+                                        <input type="submit" class="btn-submit-form btn btn-primary btn-lg btn-block" value="Cadastrar">
+                                        <p id="msg_form_register" class="msg_error_auth"><b></b></p>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--Botao pra desconectar-->
                     <div id="btn-desconectar" class="ml-auto">
                         <div class="navbar-nav text-center action-buttons">
-                            <a href="" class="btn btn-outline-secondary active">Desconectar</a>
+                            <a href="" class="btn btn-outline-primary">Desconectar</a>
                         </div>
                     </div>
                 </div>
             </nav>
         </header>
-        <main class="container">
-            <div id="calendar">
 
-            </div>
+        <main class="container eventos_pagina_principal">
+            <h1 class="Titulo_Consulta_Evento"></h1>
+            <p class="nenhumEvento">Nenhum evento encontrado</p>
+            <div>
+                <div class="eventos_do_dia d-inline-flex">
+                    <div class="caixa_mes_dia"> 
+                        <h1 class="display-4"><span class="badge badge-secondary">23</span></h1>
+                        <h6>DEZEMBRO</h6>
+                    </div>
+                    <div class="info_detalhada_evento">
+                        <div>
+                            <a href="#" class="trash_link float-right fa fa-trash-o fa-2x"></a>
+                            <a href="#" class="edit_link float-right fa fa-pencil-square-o fa-2x" aria-hidden="true"></a>
+                            <h3 class="text-uppercase"><strong>Ice Cream Social</strong></h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
+                            <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
+                            <li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> Cafe</li>
+                        </ul>
+                        <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div> 
         </main>
     </div>
     <script src="./js/jquery.min.js"></script>

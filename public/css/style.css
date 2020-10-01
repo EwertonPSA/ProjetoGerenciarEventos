@@ -1,5 +1,49 @@
 body{
-    overflow-y: scroll;
+    padding-top: 70;
+    height: 100%;
+    background-color: #f1f1f1;
+}
+
+.eventos_pagina_principal{
+    padding-top: 130px;
+}
+
+.container .evento{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(192, 192, 192);
+    border-radius: 5px;
+}
+
+.container .info_detalhada_evento{
+    width: 870px;
+}
+
+.container .badge-secondary{
+    background-color: rgb(93, 170, 93);
+}
+.container .caixa_mes_dia{
+    min-width: 110px;
+}
+
+.info_detalhada_evento a{
+    text-decoration: none;
+}
+
+.info_detalhada_evento .trash_link{
+    color:red;
+}
+
+.info_detalhada_evento .edit_link{
+    margin-right: 4px;
+}
+
+.msg_error_auth{
+    padding-top: 4px;
+    color:rgb(221, 9, 9);
 }
 
 /*Barra nav da tela principal*/
@@ -28,6 +72,11 @@ body{
 	padding: 0 !important;
 	font-size: 14px;
 }
+
+.navbar-nav li{
+    margin-left: 2px;
+}
+
 .navbar .action-buttons .dropdown-toggle::after {
 	display: none;
 }
@@ -35,6 +84,11 @@ body{
     /*Ajusta tamanho dos links quando diminui a tela*/
     .navbar .navbar-nav a{
         width: 100%;
+    }
+
+    .navbar li{
+        margin-left: 0px;
+        margin-bottom: 2px;
     }
 }
 @media (max-width: 768px){
@@ -46,10 +100,21 @@ body{
         padding: 10px 15px;
         margin: 10px 0px;
 		background: transparent;
-	}
+    }
 }
+
+@media (max-width: 900px){
+    .container .info_detalhada_evento{
+        width: auto;
+    }
+}
+
 .navbar .sign-up-btn {
 	min-width: 110px;
 	max-height: 36px;
 }
 
+
+.navbar-fixed-top{
+    top: 0;
+}
