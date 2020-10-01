@@ -1,4 +1,55 @@
-#testee{
-    text-align: right;
-    color: red;
+body{
+    overflow-y: scroll;
 }
+
+/*Barra nav da tela principal*/
+.logo{
+    height: 50px;
+}
+.navbar .navbar-form {
+	border: none;
+}
+.navbar .dropdown-menu {
+	color: #999;
+	font-weight: normal;
+	border-radius: 1px;
+	border-color: #e5e5e5;
+	box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.navbar .action-form {
+	width: 280px;
+	padding: 20px;
+	left: auto;
+	right: 0;
+	font-size: 14px;
+}
+.navbar .action-form a {		
+	color: #33cabb;
+	padding: 0 !important;
+	font-size: 14px;
+}
+.navbar .action-buttons .dropdown-toggle::after {
+	display: none;
+}
+@media (max-width: 768px){
+    /*Ajusta tamanho dos links quando diminui a tela*/
+    .navbar .navbar-nav a{
+        width: 100%;
+    }
+}
+@media (max-width: 768px){
+    /*Ajusta da caixa da tag form quando a tela diminui*/
+	.navbar .dropdown-menu.action-form {
+        border-radius: 10px;
+        border-color: rgb(209, 207, 207);
+		width: 100%;
+        padding: 10px 15px;
+        margin: 10px 0px;
+		background: transparent;
+	}
+}
+.navbar .sign-up-btn {
+	min-width: 110px;
+	max-height: 36px;
+}
+

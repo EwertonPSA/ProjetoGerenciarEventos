@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Eventos</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <div class="logo">
+                <a href="principal.html" class="navbar-brand">Gerenciador<i>De</i><b>Evento</b></a>
+                <div class="mt-2 center d-inline-block">
+                    <p id="usuario-info">Bem vindo, <i></i></p>
+                </div>  		
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <!--Botao exibido ao diminuir a tela-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarPrincipal">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarPrincipal">
+                    <!-- Barra das funcionalidades dos eventos -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item active ml-1">
+                            <a id="buscar" class="nav-link btn btn-outline-secondary" >Buscar Eventos</a>
+                        </li>
+                        <li class="nav-item active usuario-autenticado-eventos ml-1">
+                            <a class="nav-link btn btn-outline-secondary" href="">Criar Evento</a>
+                        </li>
+                        <li class="nav-item active usuario-autenticado-eventos ml-1">
+                            <a class="nav-link btn btn-outline-secondary" href="">Editar Evento</a>
+                        </li>
+                        <li class="nav-item active usuario-autenticado-eventos ml-1">
+                            <a class="nav-link btn btn-outline-secondary" href="">Remover Evento</a>
+                        </li>
+                    </ul>
+                    <!-- Botoes de login e registro pro usuario-->
+                    <div id="btn-register-login" class="ml-auto">
+                        <div class="navbar-nav text-center action-buttons">
+                            <!--Botao de login-->
+                            <div class="nav-item dropdown">
+                                <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle active mr-4">Entrar</a>
+                                <div class="dropdown-menu action-form">
+                                    <form onsubmit="fazerLogin(event, this)">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Endereço de email</label>
+                                            <input id="email_login" type="text" class="form-control" placeholder="Insira o email" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Senha</label>
+                                            <input id="senha_login" type="password" class="form-control" placeholder="Insira a senha" required="required">
+                                        </div>
+                                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Conectar">
+                                    </form>
+                                </div>
+                            </div>
+                            <!--Botao de registro-->
+                            <div class="nav-item dropdown">
+                                <a href="" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Cadastre-se</a>
+                                <div class="dropdown-menu action-form">
+                                    <form onsubmit="fazerCadastro(event, this)">
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Nome</label>
+                                            <input id="name_register" type="text" class="form-control" placeholder="Insira o nome" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail2">Endereço de email</label>
+                                            <input id="email_register" type="text" class="form-control" placeholder="Insira o email" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword2">Senha</label>
+                                            <input id="senha_register" type="password" class="form-control" placeholder="Insira a senha" required="required">
+                                        </div>
+                                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Cadastrar">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="btn-desconectar" class="ml-auto">
+                        <div class="navbar-nav text-center action-buttons">
+                            <a href="" class="btn btn-outline-secondary active">Desconectar</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="container">
+            <div id="calendar">
+
+            </div>
+        </main>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/principal.js"></script>
+</body>
+</html>
