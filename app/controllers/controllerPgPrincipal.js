@@ -1,7 +1,14 @@
+const path = require('path');
+
 const principal = (req, res) => {
-    res.render('principal');
+    res.sendFile(path.join(__dirname, '../../public', 'principal.html'));
 };
 
+const buscar = (req, res) =>{
+    return res.send({teste:"Joao1"});
+}
+
 module.exports = {
-    principal
+    principal,
+    buscar
 };
