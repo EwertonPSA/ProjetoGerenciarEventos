@@ -25,6 +25,7 @@ npm start
 A partir de então a aplicação estará rodando com as configurações do .env
 
 Para finalizar o programa pode ser pressionado os botões ctrl+c, assim o nodemon para de ser executado
+
 Para finalizar o container do banco execute
 ```
 docker-compose down
