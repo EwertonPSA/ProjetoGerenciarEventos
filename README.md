@@ -3,7 +3,9 @@ O projeto envolve construir um calendario que gerencia os eventos. Foi utilizado
 
 ## Funcionalidades importantes e que foram cobridas na aplicação
 Concluidas: Registro de usuario, autenticação do usuario, Busca de eventos por data, Busca de eventos relacionadas ao usuario que os criou, impedir sobreposição no cadastro de eventos e responsividade da aplicação.
+
 Funcionalidades criadas: Pagina principal do site informa todos eventos no dia atual, após a autenticação ou registro é informado os seus eventos para o dia atual (relacionadas apenas ao usuario), autenticação utilizando JSON Web Tokens.
+
 Concluidas apenas no backend: Edição de eventos, criação de eventos, deletar eventos. 
 
 ### Como rodar
