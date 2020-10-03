@@ -2,8 +2,6 @@ const express = require('express');
 const bcrypt = require('bcryptjs');//Pro password
 const jwt = require('jsonwebtoken');//forma segura de representar as revindicacoes ( como objetos json) entre as partes
 const authConfig = require('../../config/auth');
-
-//Importando User para fazer as acoes de login e de cadastro
 const User = require('../models/user'); 
 
 /**
@@ -17,7 +15,7 @@ function generateToken(params = {}){
     });
 }
 
-//Rota de cadastro utilizando requisicao do tipo POST
+//Funcao para cadastro
 const signUp = async(req, res) =>{
     try{//Verifico se existe algum usuario com o email(unico) cadastrado
         const {email} = req.body;
@@ -39,7 +37,7 @@ const signUp = async(req, res) =>{
     }
 };
 
-//Rota de autenticacao, usado para fazer login e acessar o painel da aplicacao
+//Funcao para login
 const signIn = async(req, res) =>{
     try{
         const {email, password} = req.body;

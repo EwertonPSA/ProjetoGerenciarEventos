@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de Eventos</title>
+    <title>Calendario de Eventos</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 
         <header class="fixed-top bg-white">
             <div class="logo">
-                <a href="principal.html" class=" navbar-brand">Gerenciador<i>De</i><b>Evento</b></a>
+                <a id="logo_link" href="principal.html" class=" navbar-brand">Calendario<i>De</i><b>Evento</b></a>
                 <div class="mt-2 center d-inline-block">
                     <p id="usuario-info">Bem vindo, <i></i></p>
                 </div>  		
@@ -29,16 +29,16 @@
                     <!-- Barra das funcionalidades dos eventos -->
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a id="buscar" class="nav-link btn btn-secondary" >Buscar Eventos</a>
+                            <a id="buscarEvento" class="nav-link btn btn-secondary usuario-autenticado-eventos" >Buscar Eventos</a>
                         </li>
                         <li class="nav-item active usuario-autenticado-eventos">
-                            <a class="nav-link btn btn-secondary" href="">Criar Evento</a>
+                            <a id="criarEvento" class="nav-link btn btn-secondary" >Criar Evento</a>
                         </li>
                         <li class="nav-item active usuario-autenticado-eventos">
-                            <a class="nav-link btn btn-secondary" href="">Editar Evento</a>
+                            <a id="editarEvento" class="nav-link btn btn-secondary" >Editar Evento</a>
                         </li>
                         <li class="nav-item active usuario-autenticado-eventos">
-                            <a class="nav-link btn btn-secondary" href="">Remover Evento</a>
+                            <a id="removerEvento" class="nav-link btn btn-secondary" >Remover Evento</a>
                         </li>
                     </ul>
                     <!-- Botoes de login e registro pro usuario-->
@@ -98,27 +98,141 @@
 
         <main class="container eventos_pagina_principal">
             <h1 class="Titulo_Consulta_Evento"></h1>
-            <p class="nenhumEvento">Nenhum evento encontrado</p>
-            <div>
-                <div class="eventos_do_dia d-inline-flex">
-                    <div class="caixa_mes_dia"> 
-                        <h1 class="display-4"><span class="badge badge-secondary">23</span></h1>
-                        <h6>DEZEMBRO</h6>
-                    </div>
-                    <div class="info_detalhada_evento">
-                        <div>
-                            <a href="#" class="trash_link float-right fa fa-trash-o fa-2x"></a>
-                            <a href="#" class="edit_link float-right fa fa-pencil-square-o fa-2x" aria-hidden="true"></a>
-                            <h3 class="text-uppercase"><strong>Ice Cream Social</strong></h3>
+            <div id="div_funcionalidades"><!--Reuni todas paginas principais das funcionalidades-->
+
+                <!--Janela de Buscar Eventos-->  
+                <div id="div_Buscar">
+                    <h2>BUSCA DE EVENTOS</h2>
+                    
+                    <form onsubmit="buscaEventos(event, this)">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data inicial:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="busca_inicioEvento" type="date" value="2020-01-01"  placeholder="Insira a data" required="required">
+                                <input id="busca_horaInicio" type="time" value="17:39:57" placeholder="Insira o horário" required="required">
+                            </div>
                         </div>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
-                            <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
-                            <li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> Cafe</li>
-                        </ul>
-                        <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data Final:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="busca_fimEvento" type="date" value="2020-01-01" placeholder="Insira a data" required="required">
+                                <input id="busca_horaFim" type="time"  value="17:39:57" placeholder="Insira o horário" required="required">
+                            </div>
+                        </div>
+                        <input id="busca_submit" class="ml-2" type="submit" value="Buscar">
+                    </form>
+                </div>
+
+                <!--Janela de Criar Eventos-->
+                <div id="div_criarEvento">
+                    <h2>CRIAR EVENTOS</h2>
+                    
+                    <form onsubmit="criaEventos(event, this)">
+                        <div class="form-group">
+                            <label >Nome Do Evento</label>
+                            <input type="text" class="form-control" id="cria_nomeEvento" placeholder="Insira o nome do evento">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data inicial:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="cria_inicioEvento" type="date" value="2020-01-01"  placeholder="Insira a data" required="required">
+                                <input id="cria_horaInicio" type="time" value="17:39:57" placeholder="Insira o horário" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data Final:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="cria_fimEvento" type="date" value="2020-01-01" placeholder="Insira a data" required="required">
+                                <input id="cria_horaFim" type="time"  value="17:39:57" placeholder="Insira o horário" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label >Descrição</label>
+                            <textarea class="form-control" id="cria_text" rows="3" placeholder="Inclua uma descrição do evento"  required="required"></textarea>
+                        </div>
+                        <input id="cria_Registrar" class="ml-2 btn-success" type="submit" value="Registrar">
+                    </form>
+                </div>
+
+                <!--Janela de Editar Eventos-->
+                <div id="div_editarEvento">
+                    <h2>EDITAR EVENTOS</h2>
+                    <h5>Selecione a data para buscar o evento:</h5>
+                    <form id="edit_listarEventos" onsubmit="editListEventos(event, this)">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data inicial:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="edit_inicioEvento" type="date" value="2020-01-01"  placeholder="Insira a data" required="required">
+                                <input id="edit_horaInicio" type="time" value="17:39:57" placeholder="Insira o horário" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data Final:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="edit_fimEvento" type="date" value="2020-01-01" placeholder="Insira a data" required="required">
+                                <input id="edit_horaFim" type="time"  value="17:39:57" placeholder="Insira o horário" required="required">
+                            </div>
+                        </div>
+                        <input id="edit_submit" class="ml-2" type="submit" value="Buscar">
+                    </form>
+
+                    <!--Local em que o usuario pode alterar os dados do evento-->
+                    <!--Ele soh aparece quando for clickado no icone do alterar de um evento especifico-->
+                    <div id="edit_infoNovoEvento" class="d-none">
+                        <form onsubmit="editEventos(event, this)">
+                            <div class="form-group">
+                                <label >Nome Do Evento</label>
+                                <input type="text" class="form-control" id="edit_nomeEvento" placeholder="Insira o nome do evento">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-form-label">Data inicial:</label>
+                                <div class="col-sm-10 d-inline">
+                                    <input id="edit_inicioEvento_formulario" type="date" value="2020-01-01"  placeholder="Insira a data" required="required">
+                                    <input id="edit_horaInicio_formulario" type="time" value="17:39:57" placeholder="Insira o horário" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-form-label">Data Final:</label>
+                                <div class="col-sm-10 d-inline">
+                                    <input id="edit_fimEvento_formulario" type="date" value="2020-01-01" placeholder="Insira a data" required="required">
+                                    <input id="edit_horaFim_formulario" type="time"  value="17:39:57" placeholder="Insira o horário" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label >Descrição</label>
+                                <textarea class="form-control" id="edit_text" rows="3" placeholder="Inclua uma descrição do evento"></textarea>
+                            </div>
+                            <input id="edit_Registrar" class="ml-2 btn-success" type="submit" value="Alterar">
+                        </form>
                     </div>
                 </div>
+
+                <!--Janela de Remover Eventos-->
+                <div id="div_removerEvento">
+                    <h2>REMOVER EVENTOS</h2>
+                    <h5>Selecione a data para buscar o evento:</h5>
+                    <form onsubmit="remove_ListEventos(event, this)">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data inicial:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="remove_inicioEvento" type="date" value="2020-01-01"  placeholder="Insira a data" required="required">
+                                <input id="remove_horaInicio" type="time" value="17:39:57" placeholder="Insira o horário" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Data Final:</label>
+                            <div class="col-sm-10 d-inline">
+                                <input id="remove_fimEvento" type="date" value="2020-01-01" class="" placeholder="Insira a data" required="required">
+                                <input id="remove_horaFim" type="time"  value="17:39:57" class="" placeholder="Insira o horário" required="required">
+                            </div>
+                        </div>
+                        <input id="remove_submit" class="ml-2" type="submit" value="Buscar">
+                    </form>
+                </div>
+            </div>
+            <p class="msg_tela_principal"></p> <!--Mensagens a ser reportada pro usuario-->
+            <div id="eventos_a_serem_exibidos">
+                <!--Local onde eh inserido os eventos encontrados-->
             </div> 
         </main>
     </div>

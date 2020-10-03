@@ -16,7 +16,6 @@ function authMiddleware(req, res, next){
             msg:'Erro no token'
         }});
     }
-
     //Usando desestruturacao para acessar as partes
     const [scheme, token] = parts;
     //Verificando se no scheme ta o escrito no inicio o Bearer (ignorando o que tem a frente depois)
@@ -30,8 +29,9 @@ function authMiddleware(req, res, next){
     jwt.verify(token, authConfig.secret, (err, decoded) => {
         if(err) return res.status(401).send({error: {
             type: 'ErrorMiddlware',
-            msg:'token expirado'
+            msg:'Sessão expirada, entre na sua conta novamente'
         }});
+
         req.userId = decoded.id;
         return next();
     });
