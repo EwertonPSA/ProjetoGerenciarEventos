@@ -68,7 +68,6 @@ async function consultaEventosDoUsuarioNoDia(){
     .then(res => {
         return res.json();
     }).then(json => {
-        console.log('eiii');
         if(json.hasOwnProperty('error')){ alert(json.error.msg) }
         else if(json.events.length===0){
             incluirMsg('.msg_tela_principal', 'Nenhum evento encontrado');
