@@ -1,0 +1,133 @@
+body{
+    padding-top: 70;
+    height: 100%;
+    background-color: #f1f1f1;
+}
+
+.msg_tela_principal{
+    margin-top: 10px;
+}
+
+.eventos_pagina_principal{
+    padding-top: 130px;
+}
+
+#eventos_a_serem_exibidos{
+    margin-top: 5px;
+}
+
+#div_funcionalidades{
+    display: none;
+}
+
+
+.container .eventos_do_dia{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(192, 192, 192);
+    border-radius: 5px;
+}
+
+
+.container .info_detalhada_evento{
+    width: 870px;
+}
+
+.container .badge-secondary{
+    background-color: rgb(93, 170, 93);
+}
+.container .caixa_mes_dia{
+    min-width: 110px;
+}
+
+.info_detalhada_evento a{
+    text-decoration: none;
+}
+
+.info_detalhada_evento .trash_link{
+    color:red;
+}
+
+.info_detalhada_evento .edit_link{
+    color: rgb(81, 81, 238);
+}
+
+.msg_error_auth{
+    padding-top: 4px;
+    color:rgb(221, 9, 9);
+}
+
+/*Barra nav da tela principal*/
+.logo{
+    height: 50px;
+}
+.navbar .navbar-form {
+	border: none;
+}
+.navbar .dropdown-menu {
+	color: #999;
+	font-weight: normal;
+	border-radius: 1px;
+	border-color: #e5e5e5;
+	box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.navbar .action-form {
+	width: 280px;
+	padding: 20px;
+	left: auto;
+	right: 0;
+	font-size: 14px;
+}
+
+.navbar .navbar-nav a{
+    margin-left: 2px;
+}
+
+.navbar-nav li{
+    margin-left: 2px;
+}
+
+.navbar .action-buttons .dropdown-toggle::after {
+	display: none;
+}
+@media (max-width: 768px){
+    /*Ajusta tamanho dos links quando diminui a tela*/
+    .navbar .navbar-nav a{
+        width: 100%;
+    }
+
+    .navbar li{
+        margin-left: 0px;
+        margin-bottom: 2px;
+    }
+}
+@media (max-width: 768px){
+    /*Ajusta da caixa da tag form quando a tela diminui*/
+	.navbar .dropdown-menu.action-form {
+        border-radius: 10px;
+        border-color: rgb(209, 207, 207);
+		width: 100%;
+        padding: 10px 15px;
+        margin: 10px 0px;
+		background: transparent;
+    }
+}
+
+@media (max-width: 900px){
+    .container .info_detalhada_evento{
+        width: auto;
+    }
+}
+
+.navbar .sign-up-btn {
+	min-width: 110px;
+	max-height: 36px;
+}
+
+
+.navbar-fixed-top{
+    top: 0;
+}
